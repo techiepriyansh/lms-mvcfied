@@ -1,0 +1,26 @@
+{% extends "templates/base.twig" %}
+
+{% block title %} LMS Home {% endblock %}
+
+{% block scripts %}
+  <link rel="stylesheet" type="text/css" href="/user/home/home.css">
+  <script type="text/javascript" src="/util/util.js"></script>
+  <script type="text/javascript" src="/util/tabs.js" defer></script>
+  <script type="text/javascript" src="/user/home/components/books.js" defer></script>
+  <script type="text/javascript" src="/user/home/home.js" defer></script>
+{% endblock %}
+
+{% block body %}
+{% verbatim %}
+  <div id="root" class="container">
+    <tabs>
+      <tab name="Library" v-bind:selected="true">
+        <book-items-container ref="bookItemsContainer"></book-items-container>
+      </tab>
+      <tab name="My Books">
+        <issued-book-items-container ref="issuedBookItemsContainer"></issued-book-items-container>
+      </tab>
+    </tabs>
+  </div>
+{% endverbatim %}
+{% endblock %}

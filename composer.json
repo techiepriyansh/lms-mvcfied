@@ -1,0 +1,11 @@
+{
+    "name": "techiepriyansh/lms-mvcfied",
+    "description": "Library Management System MVC architecture",
+    "require": {
+        "torophp/torophp": "dev-master",
+        "twig/twig": "^3.0"
+    },
+    "autoload": {
+        "classmap": ["app"]
+    }
+}

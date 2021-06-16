@@ -1,0 +1,46 @@
+{% extends "templates/base.twig" %}
+
+{% block title %} LMS Login {% endblock %}
+
+{% block scripts %}
+{% endblock %}
+
+{% block body %}
+  <section class="hero is-fullheight">
+    <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+          <p class="title">Login</p>
+          <form action="/login" method="POST" class="box">
+            <div class="field">
+              <label for="" class="label">Email</label>
+              <div class="control has-icons-left">
+                <input type="email" name="email" id="email" class="input" required>
+                <span class="icon is-small is-left">
+                  <i class="fa fa-envelope"></i>
+                </span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="" class="label">Password</label>
+              <div class="control has-icons-left">
+                <input type="password" name="pass" id="pass" placeholder="*******" class="input" required>
+                <span class="icon is-small is-left">
+                  <i class="fa fa-lock"></i>
+                </span>
+              </div>
+            </div>
+            <div class="field">
+              <button class="button is-primary" onclick="document.querySelector('form').submit();">
+                Login
+              </button>
+            </div>
+          </form>
+          <a href="/register">Register</a>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+

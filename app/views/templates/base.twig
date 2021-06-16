@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include("templates/head.twig") %}
+    <title>{% block title %}{% endblock %}</title>
+    {% block scripts %}{% endblock %}
+  </head>
+  <body>
+    {% block body %}{% endblock %}
+  </body>
+</html>
