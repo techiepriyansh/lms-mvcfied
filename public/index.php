@@ -4,12 +4,18 @@ require __DIR__."/../vendor/autoload.php";
 
 Toro::serve(array(
   "/" => "\Controller\Home",
-  "/admin" => "\Controller\Dashboard",
   "/login" => "\Controller\Login",
   "/user-book-library" => "Controller\UserBookLibrary",
   "/user-books-data" => "Controller\UserBooksData",
   "/register" => "\Controller\Register",
   "/request-checkout" => "\Controller\Checkout",
-  "/request-checkin" => "\Controller\Checkin"
+  "/request-checkin" => "\Controller\Checkin",
+  "/admin" => "\Controller\Dashboard",
+  "/admin-login" => "\Controller\AdminLogin",
+  "/books-data" => "\Controller\BooksData",
+  "/add-book" => "\Controller\AddBook",
+  "/pending-requests" => "\Controller\PendingRequests",
+  "/pending-checkouts" => "\Controller\PendingCheckouts",
+  "/pending-checkins" => "\Controller\PendingCheckins",
 ));
 
