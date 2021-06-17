@@ -14,6 +14,7 @@ Toro::serve(array(
   "/admin-login" => "\Controller\AdminLogin",
   "/books-data" => "\Controller\BooksData",
   "/add-book" => "\Controller\AddBook",
+  "/edit-book-data" => "Controller\EditBookData",
   "/pending-requests" => "\Controller\PendingRequests",
   "/pending-checkouts" => "\Controller\PendingCheckouts",
   "/pending-checkins" => "\Controller\PendingCheckins",

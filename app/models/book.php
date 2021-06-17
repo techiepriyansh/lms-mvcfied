@@ -29,7 +29,7 @@ class Book {
   public static function edit_book($id, $title, $author, $publisher, $pages, $total, $available, $info) {
     $db = \DB::get_instance();
     $stmt = $db->prepare(
-      " update book"
+      " update book "
 
       ."set title = ?, "
       ."author = ?, "
@@ -48,7 +48,7 @@ class Book {
     $db = \DB::get_instance();
     $stmt = $db->prepare(
       "insert into book (title, author, publisher, pages, total, available, info) values ( ".
-      "?, ?, ?, ".$pages.", ".$total.", ".$available.", ?"
+      "?, ?, ?, ".$pages.", ".$total.", ".$available.", ?)"
     );
     $stmt->execute(array($title, $author, $publisher, $info));
   }
