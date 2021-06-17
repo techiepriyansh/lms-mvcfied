@@ -1,0 +1,35 @@
+{% extends "templates/base.twig" %}
+
+{% block title %} LMS Admin Dashboard {% endblock %}
+
+{% block scripts %}
+  <link rel="stylesheet" type="text/css" href="/assets/admin/dashboard/dashboard.css">
+  <script type="text/javascript" src="/assets/util/util.js"></script>
+  <script type="text/javascript" src="/assets/util/tabs.js" defer></script>
+  <script type="text/javascript" src="/assets/admin/dashboard/components/requestItems.js" defer></script>
+  <script type="text/javascript" src="/assets/admin/dashboard/components/checkoutItems.js" defer></script>
+  <script type="text/javascript" src="/assets/admin/dashboard/components/checkinItems.js" defer></script>
+  <script type="text/javascript" src="/assets/admin/dashboard/components/books.js" defer></script>
+  <script type="text/javascript" src="/assets/admin/dashboard/dashboard.js" defer></script>
+{% endblock %}
+
+{% block body %}
+{% verbatim %}
+  <div id="root" class="container">
+    <tabs>
+      <tab name="Books" v-bind:selected="true">
+        <book-items-container ref="bookItemsContainer"></book-items-container>
+      </tab>
+      <tab name="Registration Requests">
+        <request-items-container ref="reqItemsContainer"></request-items-container>
+      </tab>
+      <tab name="Checkout Requests">
+        <checkout-items-container ref="checkoutItemsContainer"></checkout-items-container>
+      </tab>
+      <tab name="Checkin Requests">
+        <checkin-items-container ref="checkinItemsContainer"></checkin-items-container>
+      </tab>
+    </tabs>
+  </div>
+{% endverbatim %}
+{% endblock %}

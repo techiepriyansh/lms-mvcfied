@@ -1,33 +1,22 @@
 {% extends "templates/base.twig" %}
 
-{% block title %} LMS Register {% endblock %}
+{% block title %} Admin Login {% endblock %}
 
 {% block scripts %}
-  <script type="text/javascript" src="/assets/user/register/register.js" defer></script>
 {% endblock %}
 
 {% block body %}
-{% verbatim %}
   <section class="hero is-fullheight">
     <div class="hero-body">
     <div class="container">
       <div class="columns is-centered">
         <div class="column is-5-tablet is-4-desktop is-3-widescreen">
-          <p class="title">Register</p>
-          <div id="log" class="notification" v-if="seen">{{msg}}</div>
-          <form id="app" class="box" @submit.prevent="requestReg">
-            <div class="field">
-              <label for="" class="label">Name</label>
-              <div class="control has-icons-left">
-                <input v-model="name" type="text" name="name" id="name" class="input" required>
-                <span class="icon is-small is-left">
-                  <i class="fa fa-user"></i>
-                </span>
-              </div>
+          <p class="title">Admin Login</p>
+          <form action="/admin-login" method="POST" class="box">
             <div class="field">
               <label for="" class="label">Email</label>
               <div class="control has-icons-left">
-                <input v-model="email" type="email" name="email" id="email" class="input" required>
+                <input type="email" name="email" id="email" class="input" required>
                 <span class="icon is-small is-left">
                   <i class="fa fa-envelope"></i>
                 </span>
@@ -36,23 +25,21 @@
             <div class="field">
               <label for="" class="label">Password</label>
               <div class="control has-icons-left">
-                <input v-model="pass" type="password" name="pass" id="pass" placeholder="*******" class="input" required>
+                <input type="password" name="pass" id="pass" placeholder="*******" class="input" required>
                 <span class="icon is-small is-left">
                   <i class="fa fa-lock"></i>
                 </span>
               </div>
             </div>
             <div class="field">
-              <button class="button is-primary">
-                Request Registration
+              <button class="button is-primary" onclick="document.querySelector('form').submit();">
+                Login
               </button>
             </div>
           </form>
         </div>
-        <a href="/login">Back to login</a>
       </div>
     </div>
   </section>
-{% endverbatim %}
 {% endblock %}
 

@@ -17,6 +17,15 @@ class User {
     return NULL;
   }
 
+  public static function get_user_by_id($id) {
+    $db = \DB::get_instance();
+    $stmt = $db->prepare("SELECT * from user where id=".$id."");
+    $stmt->execute();
+    $result = $stmt->fetch();
+
+    return $result;
+  }
+
   public static function does_user_exist($name, $email, $pass) {
     $db = \DB::get_instance();
     $stmt = $db->prepare("SELECT * from user where email=?");

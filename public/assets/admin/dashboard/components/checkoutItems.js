@@ -52,6 +52,7 @@ Vue.component('checkout-item', {
       let {checkoutData} = this;
       let postData = {
         id: this.checkoutData.id,
+        book: this.checkoutData.book.id,
         reject: true,
       }
       let resData = await postJSON('/pending-checkouts', postData);
