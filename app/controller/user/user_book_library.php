@@ -2,7 +2,7 @@
 
 namespace Controller;
 
-class UserBooksData {
+class UserBookLibrary {
   public function get() {
     session_start();
 
@@ -12,7 +12,9 @@ class UserBooksData {
     }
 
     header('Content-Type: application/json');
-    echo json_encode(\Model\Book::get_issued_books($_SESSION['id']));
+    echo json_encode(array(
+      "arr" => \Model\Book::get_user_library($_SESSION['id'])
+    ));
   }
       
 }

@@ -2,17 +2,19 @@
 
 namespace Controller;
 
-class BooksData {
+class UserBooksData {
   public function get() {
     session_start();
 
-    if (!isset($_SESSION['admin'])) {
+    if (!isset($_SESSION['id'])) {
       echo 'Access denied';
       return;
     }
 
     header('Content-Type: application/json');
-    echo json_encode(\Model\Book::get_books());
+    echo json_encode(array(
+      "arr" => \Model\Book::get_issued_books($_SESSION['id'])
+    ));
   }
       
 }
