@@ -25,7 +25,7 @@ class PendingCheckouts {
     }
 
     if (isset($_POST['approve'])) {
-      \Model\Admin::approve_checkout_request($_POST['id'], $_POST['requestee'], $_POST['book'], time());
+      \Model\Admin::approve_checkout_request($_POST['id'], $_POST['requestee'], $_POST['book'], time()*1000);
     }
     else if (isset($_POST['reject'])) {
       \Model\Admin::reject_checkout_request($_POST['id'], $_POST['book']);
