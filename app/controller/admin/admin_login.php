@@ -20,15 +20,17 @@ class AdminLogin {
     $email = $_POST["email"];
     $pass = $_POST["pass"];
 
-    $is_admin = \Model\Admin::get_admin($email, $pass);
-    if ($is_admin) {
-      session_start();
-      $_SESSION['admin'] = 'true';
-      header('Location: /admin');
+    $result = \Model\Admin::get_admin($email);
+    if ($result) {
+      if (password_verify($pass, $result["pass"])) {
+        session_start();
+        $_SESSION['admin'] = 'true';
+        header('Location: /admin');
+        return;
+      }  
     }
-    else {
-      echo 'Access Denied';
-    }
+
+    echo 'Access denied';
   }
   
 }

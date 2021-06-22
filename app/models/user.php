@@ -3,24 +3,10 @@
 namespace Model;
 
 class User {
-  public static function get_user($email, $pass) {
+  public static function get_user($email) {
     $db = \DB::get_instance();
     $stmt = $db->prepare("SELECT * from user where email=? and active=true");
     $stmt->execute(array($email));
-    $result = $stmt->fetch();
-    if ($result) {
-      if (password_verify($pass, $result["pass"])) {
-        return $result;
-      }
-    }
-
-    return NULL;
-  }
-
-  public static function get_user_by_id($id) {
-    $db = \DB::get_instance();
-    $stmt = $db->prepare("SELECT * from user where id=".$id."");
-    $stmt->execute();
     $result = $stmt->fetch();
 
     return $result;

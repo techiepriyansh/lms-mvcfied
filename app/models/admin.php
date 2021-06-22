@@ -3,18 +3,13 @@
 namespace Model;
 
 class Admin {
-  public static function get_admin($email, $pass) {
+  public static function get_admin($email) {
     $db = \DB::get_instance();
     $stmt = $db->prepare("SELECT * from admin where email=?");
     $stmt->execute(array($email));
     $result = $stmt->fetch();
-    if ($result) {
-      if (password_verify($pass, $result["pass"])) {
-        return true;
-      }
-    }
 
-    return false;
+    return $result;
   }
 
   public static function get_pending_requests() {

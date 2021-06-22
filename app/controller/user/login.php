@@ -20,15 +20,17 @@ class Login {
     $email = $_POST["email"];
     $pass = $_POST["pass"];
 
-    $user_info = \Model\User::get_user($email, $pass);
-    if ($user_info) {
-      session_start();
-      $_SESSION['id'] = $user_info['id'];
-      header('Location: /');
+    $result = \Model\User::get_user($email);
+    if ($result) {
+      if (password_verify($pass, $result["pass"])) {
+        session_start();
+        $_SESSION['id'] = $result['id'];
+        header('Location: /');
+        return;
+      }  
     }
-    else {
-      echo 'Access Denied';
-    }
+    
+    echo 'Access denied';
   }
   
 }
