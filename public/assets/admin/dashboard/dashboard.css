@@ -34,3 +34,6 @@ html, body {
   align-items: center;
 }
 
+#logout-button {
+  margin-top: 10px;
+}

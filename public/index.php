@@ -5,6 +5,7 @@ require __DIR__."/../vendor/autoload.php";
 Toro::serve(array(
   "/" => "\Controller\Home",
   "/login" => "\Controller\Login",
+  "/logout" => "\Controller\Logout",
   "/user-book-library" => "Controller\UserBookLibrary",
   "/user-books-data" => "Controller\UserBooksData",
   "/register" => "\Controller\Register",

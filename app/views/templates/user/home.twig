@@ -13,6 +13,7 @@
 {% block body %}
 {% verbatim %}
   <div id="root" class="container">
+    <button id="logout-button" class="button is-success is-pulled-right" @click="logout">Logout</button>
     <tabs>
       <tab name="Library" v-bind:selected="true">
         <book-items-container ref="bookItemsContainer"></book-items-container>

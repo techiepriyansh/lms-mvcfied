@@ -1,3 +1,9 @@
 let rootEl = new Vue({
-    el: '#root'
+    el: '#root',
+    methods: {
+        logout: function() {
+            window.location.href = "/logout";
+        }
+    },
 });
+
