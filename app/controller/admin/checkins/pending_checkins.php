@@ -11,8 +11,31 @@ class PendingCheckins {
       return;
     }
 
+    $results = \Model\Admin::get_pending_checkins();
+    $res_data = array();
+    foreach($results as $result) {
+      $obj = array(
+        "id" => $result["checkin_id"],
+
+        "user" => array(
+          "id" => $result["user_id"],
+          "name" => $result["user_name"],
+          "email" => $result["user_email"]
+        ),
+
+        "book" => array(
+          "title" => $result["book_title"],
+          "id" => $result["book_id"]
+        )
+      );
+
+      array_push($res_data, $obj);
+    }
+
     header('Content-Type: application/json');
-    echo json_encode(\Model\Admin::get_pending_checkins());
+    echo json_encode(array(
+      "arr" => $res_data
+    ));
   }
 
   public function post() {

@@ -91,28 +91,10 @@ class Book {
     $stmt->execute([$book_id, $user_id, $issue_id]);
   }
 
-  public static function get_checkin_by_id($id) {
-    $db = \DB::get_instance();
-    $stmt = $db->prepare("SELECT * from checkin where id=?");
-    $stmt->execute([$id]);
-    $result = $stmt->fetch();
-
-    return $result;
-  }
-
   public static function add_currently_issued($requestee, $book, $timestamp) {
     $db = \DB::get_instance();
     $stmt = $db->prepare(" INSERT into currently_issued (bearer, book, time_issued) values (?, ?, ?)");
     $stmt->execute([$requestee, $book, $timestamp]);
-  }
-
-  public static function get_currently_issued_by_id($id) {
-    $db = \DB::get_instance();
-    $stmt = $db->prepare("SELECT * from currently_issued where id=?");
-    $stmt->execute([$id]);
-    $result = $stmt->fetch();
-
-    return $result;
   }
 
   public static function remove_from_transaction($id) {

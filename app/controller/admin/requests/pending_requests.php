@@ -12,7 +12,9 @@ class PendingRequests {
     }
 
     header('Content-Type: application/json');
-    echo json_encode(\Model\Admin::get_pending_requests());
+    echo json_encode(array(
+      "arr" => \Model\Admin::get_pending_requests()
+    ));
   }
 
   public function post() {

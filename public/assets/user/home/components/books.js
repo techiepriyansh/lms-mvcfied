@@ -89,6 +89,10 @@ Vue.component('book-items-container', {
       const bookData = await fetchJSON('/user-book-library');
       
       this.bookItems = bookData.arr;
+      for(let bookItem of this.bookItems) {
+        let requested = bookItem.requested == "1";
+        bookItem.requested = requested;
+      }
     },
   },
 
@@ -220,6 +224,10 @@ Vue.component('issued-book-items-container', {
       const bookData = await fetchJSON('/user-books-data');
       
       this.bookItems = bookData.arr;
+      for(let bookItem of this.bookItems) {
+        let requested = bookItem.requested == "1";
+        bookItem.requested = requested;
+      }
     },
   },
 
